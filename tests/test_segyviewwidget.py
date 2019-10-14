@@ -1,7 +1,7 @@
 import os
 from unittest import TestCase
 from segyviewlib import resource_icon_path, SegyTabWidget, SegyViewWidget
-from PyQt4.QtGui import QApplication
+from PyQt5.QtWidgets import QApplication
 from os import path
 
 file_prefix = path.abspath(path.join(path.dirname(path.abspath(__file__)), "testdata"))

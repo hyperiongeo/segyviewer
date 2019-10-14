@@ -2,8 +2,8 @@ from __future__ import print_function
 
 from contextlib import contextmanager
 
-from PyQt4.QtGui import QToolButton, QToolBar, QVBoxLayout, QWidget, QTabWidget
-from PyQt4.QtCore import QModelIndex
+from PyQt5.QtWidgets import QToolButton, QToolBar, QVBoxLayout, QWidget, QTabWidget
+from PyQt5.QtCore import QModelIndex
 
 from segyviewlib import LayoutCombo, SettingsWindow, SliceViewContext
 from segyviewlib import SliceDataSource, SliceModel, SliceDirection as SD, resource_icon

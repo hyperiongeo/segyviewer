@@ -1,5 +1,5 @@
-from PyQt4.QtCore import QPoint
-from PyQt4.QtGui import QMenu, QAction
+from PyQt5.QtCore import QPoint
+from PyQt5.QtWidgets import QMenu, QAction
 from math import copysign
 
 from segyviewlib import SliceView, LayoutCanvas, SliceModel

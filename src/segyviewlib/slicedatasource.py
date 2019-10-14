@@ -1,4 +1,4 @@
-from PyQt4.QtCore import QObject, pyqtSignal
+from PyQt5.QtCore import QObject, pyqtSignal
 
 from .slicemodel import SliceDirection
 import numpy as np
@@ -48,9 +48,9 @@ class EmptyDataSource(object):
     def xline(self):
         return [self._data, self._data]
 
-    @property
-    def iline(self):
-        return [self._data, self._data]
+    # @property
+    # def iline(self):
+    #     return [self._data, self._data]
 
     @property
     def depth_slice(self):
@@ -112,6 +112,8 @@ class SliceDataSource(QObject):
         self.slice_data_source_changed.emit()
 
     def read_slice(self, direction, index):
+        print('read_slice',direction,index,SliceDirection.inline)
+        # index = 2
         if direction == SliceDirection.inline:
             iline_index = self._source.ilines[index]
             return self._source.iline[iline_index].T

@@ -1,7 +1,8 @@
-from PyQt4 import QtGui
-from PyQt4.QtCore import pyqtSignal, Qt
+from PyQt5 import QtGui
+from PyQt5 import QtWidgets
+from PyQt5.QtCore import pyqtSignal, Qt
 
-from matplotlib.backends.backend_qt4agg import FigureCanvasQTAgg as FigureCanvas
+from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 
 from segyviewlib import LayoutFigure
 
@@ -41,7 +42,7 @@ class LayoutCanvas(FigureCanvas):
         FigureCanvas.__init__(self, self._figure)
         self.setParent(parent)
 
-        self.setSizePolicy(QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Expanding)
+        self.setSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         self.updateGeometry()
         self.setFocusPolicy(Qt.WheelFocus)
         self.setFocus()

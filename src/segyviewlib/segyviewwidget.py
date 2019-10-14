@@ -1,4 +1,4 @@
-from PyQt4.QtGui import QFileDialog, QToolButton, QToolBar, QVBoxLayout, QWidget, QWidgetAction
+from PyQt5.QtWidgets import QFileDialog, QToolButton, QToolBar, QVBoxLayout, QWidget, QWidgetAction
 
 from segyviewlib import ColormapCombo, LayoutCombo, SettingsWindow, SliceViewContext, HelpWindow
 from segyviewlib import SliceDataSource, SliceModel, SliceDirection as SD, SliceViewWidget, resource_icon
@@ -26,7 +26,7 @@ class SegyViewWidget(QWidget):
         layout = QVBoxLayout()
 
         self._settings_window = SettingsWindow(self._context, self)
-        self._help_window = HelpWindow(self)
+        self._help_window = HelpWindow(self)  #TODO GET WROKIGN AGAIN
 
         self._toolbar = self._create_toolbar(color_maps)
         self._toolbar.setVisible(show_toolbar)

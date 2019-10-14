@@ -1,4 +1,5 @@
-from PyQt4.QtGui import QSpinBox, QValidator
+from PyQt5.QtGui import QValidator
+from PyQt5.QtWidgets import QSpinBox
 
 
 class ArraySpinBox(QSpinBox):
@@ -42,19 +43,20 @@ class ArraySpinBox(QSpinBox):
     def validate(self, text, pos):
         text = str(text)
         if text.strip() == "":
-            return QValidator.Acceptable, pos
+            # return QValidator.Acceptable, pos
+            return QValidator.Acceptable, text,  pos
 
         try:
             value = int(text)
         except ValueError:
-            return QValidator.Invalid, pos
+            return QValidator.Invalid, text, pos
 
         try:
             index = self._values.index(value)
         except ValueError:
             for value in self._values:
                 if str(value).startswith(text[:pos]):
-                    return QValidator.Intermediate, pos
-            return QValidator.Invalid, pos
+                    return QValidator.Intermediate, text, pos
+            return QValidator.Invalid, text, pos
 
-        return QValidator.Acceptable, pos
+        return QValidator.Acceptable, text, pos

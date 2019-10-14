@@ -1,10 +1,14 @@
 #!/usr/bin/env python
 import sys
+import os
 import argparse
 
-from PyQt4.QtCore import Qt
-from PyQt4.QtGui import QMainWindow, QApplication, QToolButton, QFileDialog, QIcon
+from PyQt5.QtCore import Qt
+from PyQt5.QtGui import QIcon
+from PyQt5.QtWidgets import QMainWindow, QApplication, QToolButton, QFileDialog
 
+# sys.path.insert(0,r'C:\Users\hooge\Documents\GitHub\segyviewer\src\segyviewlib')
+sys.path.insert(0,r'C:\Users\hooge\Documents\GitHub\segyviewer\src')
 from segyviewlib import resource_icon, SegyViewWidget
 
 
@@ -63,6 +67,7 @@ if __name__ == '__main__':
                                       help = 'crossline identifer')
 
     args = parser.parse_args()
+    print(args)
 
     q_app = QApplication(sys.argv)
 

@@ -1,5 +1,5 @@
-from PyQt4.QtGui import QCheckBox, QWidget, QLabel
-from PyQt4.QtCore import Qt, pyqtSignal, QObject
+from PyQt5.QtWidgets import QCheckBox, QWidget, QLabel
+from PyQt5.QtCore import Qt, pyqtSignal, QObject
 
 from segyviewlib import ArraySpinBox
 

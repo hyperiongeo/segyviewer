@@ -1,5 +1,4 @@
-from PyQt4.QtCore import QObject
-from PyQt4.QtCore import pyqtSignal
+from PyQt5.QtCore import QObject, pyqtSignal
 
 from segyviewlib import SliceModel, SliceDataSource, SliceDirection
 
@@ -57,6 +56,8 @@ class SliceViewContext(QObject):
         """ :type: list[SliceModel] """
         self._slice_data_source = slice_data_source
         """ :type: SliceDataSource """
+        for m in  self._available_slice_models:
+            print(m.index)
 
         self._slice_data_source.slice_data_source_changed.connect(self._reset)
 
@@ -241,6 +242,7 @@ class SliceViewContext(QObject):
             m.indexes = list(self._slice_data_source.indexes_for_direction(m.index_direction))
             m.x_indexes = list(self._slice_data_source.indexes_for_direction(m.x_index_direction))
             m.y_indexes = list(self._slice_data_source.indexes_for_direction(m.y_index_direction))
+            print('m',m.index_direction, m.index)
             data = self._slice_data_source.read_slice(m.index_direction, m.index)
             m.data = data
 
@@ -259,6 +261,7 @@ class SliceViewContext(QObject):
         for m in self._available_slice_models:
             if m.index_direction == index_direction:
                 m.index = index
+                print('\nupdate_index_for_direction',index)
 
             if m.x_index_direction == index_direction:
                 m.x_index = index
@@ -271,7 +274,7 @@ class SliceViewContext(QObject):
     def load_data(self):
         if self._has_data:
             for m in [sm for sm in self._available_slice_models if sm.dirty and sm.visible]:
-                # print("loading data for %s" % m.title)
+                print("loading data for %s" % m.title)
                 m.data = self._slice_data_source.read_slice(m.index_direction, m.index)
         self.data_changed.emit(self._available_slice_models)
 

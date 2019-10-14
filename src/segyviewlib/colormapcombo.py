@@ -1,7 +1,7 @@
-from PyQt4.QtCore import QSize
-from PyQt4.QtGui import QComboBox, QPixmap, qRgb
-from PyQt4.QtCore import Qt
-from PyQt4.QtGui import QImage
+from PyQt5.QtCore import QSize, Qt
+from PyQt5.QtWidgets import QComboBox
+
+from PyQt5.QtGui import QImage, qRgb, QPixmap
 
 import numpy as np
 from matplotlib.cm import ScalarMappable
@@ -81,4 +81,4 @@ class ColormapCombo(QComboBox):
         return color_maps
 
     def itemText(self, index):
-        return str(self.itemData(index, Qt.ToolTipRole).toString())
+        return str(self.itemData(index, Qt.ToolTipRole))

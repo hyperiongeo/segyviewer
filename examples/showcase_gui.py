@@ -2,8 +2,8 @@
 import sys
 
 import matplotlib.cm as mcm
-from PyQt4.QtCore import Qt
-from PyQt4.QtGui import QMainWindow, QWidget, QApplication, QLabel, QVBoxLayout
+from PyQt5.QtCore import Qt
+from PyQt5.QtWidgets import QMainWindow, QWidget, QApplication, QLabel, QVBoxLayout
 
 from segyviewlib import LayoutCombo, ColormapCombo, LayoutCanvas
 

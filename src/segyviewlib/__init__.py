@@ -11,7 +11,7 @@ def resource_icon_path(name):
 def resource_icon(name):
     """Load an image as an icon"""
     # print("Icon used: %s" % name)
-    from PyQt4.QtGui import QIcon
+    from PyQt5.QtGui import QIcon
     return QIcon(resource_icon_path(name))
 
 def resource_html_path(name):
@@ -19,7 +19,7 @@ def resource_html_path(name):
 
 def resource_html(name):
     """Load a local HTML resource as an URL"""
-    from PyQt4.QtCore import QUrl
+    from PyQt5.QtCore import QUrl
     return QUrl.fromLocalFile(resource_html_path(name))
 
 
@@ -43,7 +43,7 @@ from .helpwindow import HelpWindow
 from .segyviewwidget import SegyViewWidget
 from .segywidgetcollection import SegyTabWidget
 
-from .version import version as __version__
+# from .version import version as __version__  #TODO FIX THIS
 
 __copyright__ = 'Copyright 2016--2019, Equinor ASA'
 __license__ = 'GNU Lesser General Public License version 3'

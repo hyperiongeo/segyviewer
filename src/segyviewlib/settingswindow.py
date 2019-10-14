@@ -1,7 +1,7 @@
 from __future__ import division
-from PyQt4.QtGui import QCheckBox, QWidget, QFormLayout, QComboBox, QLabel
-from PyQt4.QtGui import QPushButton, QHBoxLayout, QVBoxLayout, QTreeWidget, QTreeWidgetItem
-from PyQt4.QtCore import Qt, QObject, pyqtSignal
+from PyQt5.QtWidgets import (QCheckBox, QWidget, QFormLayout, QComboBox, QLabel,
+                            QPushButton, QHBoxLayout, QVBoxLayout, QTreeWidget, QTreeWidgetItem)
+from PyQt5.QtCore import Qt, QObject, pyqtSignal
 
 from segyviewlib import SliceDirection, SampleScaleController, IndexController, PlotExportSettingsWidget
 
@@ -203,7 +203,7 @@ class SettingsWindow(QWidget):
         layout.setContentsMargins(0, 0, 0, 0)
 
     def _build_tree(self, tree_wdgt, tree_def, root):
-        parent, children = tree_def.items()[0]
+        parent, children = list(tree_def.items())[0]
 
         # empty label /parent is a special case: either inline with the previous, or skip
         if parent == "":
