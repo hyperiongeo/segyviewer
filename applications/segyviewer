@@ -43,7 +43,7 @@ class SegyViewer(QMainWindow):
 
     def _open_file(self):
         input_file = QFileDialog.getOpenFileName(self, "Open SEG-Y file", "", "Segy File  (*.seg *.segy *.sgy)")
-        input_file = str(input_file).strip()
+        input_file = str(input_file[0]).strip()
 
         if input_file:
             self._segy_view_widget.set_source_filename(input_file, **self.segyioargs)
@@ -67,7 +67,6 @@ if __name__ == '__main__':
                                       help = 'crossline identifer')
 
     args = parser.parse_args()
-    print(args)
 
     q_app = QApplication(sys.argv)
 
